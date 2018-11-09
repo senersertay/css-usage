@@ -7,21 +7,21 @@
 */
 
 
-void function() {
+void function () {
     var hasLogged = false;
 
     window.CSSUsage.StyleWalker.recipesToRun.push(function uaStringInvestigation(element, results) {
 
-        if(hasLogged) {
+        if (hasLogged) {
             return results;
         } else {
             const keywords = ['edge', 'chrome', 'browser', 'unsupported', 'ie', 'internet explorer', 'google'];
             const patterns = [/edge/gi, /chrome/gi, /browser/gi, /unsupported/gi, /ie/gi, /internet ?explorer/gi, /google/gi];
 
-            for(var i=0; i<patterns.length ;i++) {
+            for (var i = 0; i < patterns.length; i++) {
                 var found = document.body.textContent.match(patterns[i]);
 
-                if(found) {
+                if (found) {
                     results[keywords[i]] = { hits: found.length };
                 } else {
                     results[keywords[i]] = { hits: 0 };
@@ -31,7 +31,7 @@ void function() {
             hasLogged = true;
             return results;
         }
-        
+
     });
 
 }();
