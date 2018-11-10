@@ -1,5 +1,5 @@
 /* 
-    RECIPE: UA String investigation
+    RECIPE: UA String Investigation
     -------------------------------------------------------------
     Author: Sertay Sener
     Description: Looks for keywords within the text content.
