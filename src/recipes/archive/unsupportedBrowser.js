@@ -7,14 +7,16 @@
 
 void function() {
     window.CSSUsage.StyleWalker.recipesToRun.push( function unsupportedBrowser( element, results) {        
+        
         //tests for phrases
         var switchPhraseString = new RegExp("((?:Switch to|Get|Download|Install)(?:\\w|\\s)+(?:Google|Chrome|Safari|firefox|Opera|Internet Explorer|IE))","i");
         var supportedPhraseString = new RegExp("((?:browser|Edge)(?:\\w|\\s)+(?:isn't|not|no longer)(?:\\w|\\s)+(?:supported|compatible))", "i");
         var needles = [{str:switchPhraseString, name:"switchPhrase"},
                         {str:supportedPhraseString, name:"supportedPhrase"}];;
 
+
         for(var i = 0; i < needles.length; i++) {
-            var found = element.textContent.match(needles[i].str);            
+            var found = element.textContent.match(needles[i].str);
             if(found) {
                 if(found.length > 0 && found !== (null || undefined)) {
                     results[needles[i].name] = results[needles[i].name] || {count: 0, match: "", container: ""};
